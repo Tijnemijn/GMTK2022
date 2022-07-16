@@ -11,6 +11,7 @@ public class PlayerInput : MonoBehaviour
         me = GetComponent<Player>();
         me.input = this;
     }
+    public bool Shooting => Input.GetButton("Fire1");
 
     public Vector2 GetMotionInput()
     {
