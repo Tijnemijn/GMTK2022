@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     internal PlayerShooter shooter;
 
     private EntityController controller;
+    private SpriteAnimator animator;
 
     private Vector2 motionInput;
 
@@ -21,12 +22,17 @@ public class Player : MonoBehaviour
         motionInput = Vector2.zero;
 
         transform = base.transform;
+        animator = SpriteObject.GetComponent<SpriteAnimator>();
     }
 
     // TODO: Maybe move this to PlayerInput
     void Update()
     {
         motionInput = input.GetMotionInput();
+        if(motionInput == new Vector2(0,0))
+            animator.SwitchAnimation("PlayerIdle");
+        else
+            animator.SwitchAnimation("PlayerWalkAnim");
     }
 
     private void FixedUpdate()

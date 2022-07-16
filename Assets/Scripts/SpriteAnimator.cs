@@ -22,9 +22,12 @@ public class SpriteAnimator : MonoBehaviour
     public void SwitchAnimation(string name)
     {
         var result = animations.Find(a => a.name == name);
-        if (result != null)
-            currentAnimation = result;
-        currentFrame = 0;
+        if (result != currentAnimation)
+        {
+            if (result != null)
+                currentAnimation = result;
+            currentFrame = 0;
+        }
     }
     public void JumpToFrame(int frame)
     {
