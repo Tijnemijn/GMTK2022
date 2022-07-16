@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerConcept_0
+      name: 1Dice_0
       rect:
         serializedVersion: 2
         x: 0
@@ -129,14 +129,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 392d1d834c9a72680800000000000000
-      internalID: -8779862288303533421
+      spriteID: 42dd371a1b457ce30800000000000000
+      internalID: 4523677472611622180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerConcept_1
+      name: 1Dice_1
       rect:
         serializedVersion: 2
         x: 16
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f24c774ff9e915f80800000000000000
-      internalID: -8119534243333815249
+      spriteID: 2d206ac3e7594f7e0800000000000000
+      internalID: -1732595587214867758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerConcept_2
+      name: 1Dice_2
       rect:
         serializedVersion: 2
         x: 32
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf946930b3d8f18c0800000000000000
-      internalID: -4026344257243166213
+      spriteID: 0d96e96823fd82120800000000000000
+      internalID: 2389405010419935696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerConcept_3
+      name: 1Dice_3
       rect:
         serializedVersion: 2
         x: 48
@@ -192,50 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4be63c42e41733230800000000000000
-      internalID: 3617359506146815668
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerConcept_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c857dda88c04f5f0800000000000000
-      internalID: -723939858928150334
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerConcept_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee9ba014dee8f86a0800000000000000
-      internalID: -6444775392094275090
+      spriteID: a8bf0e45fc7933f10800000000000000
+      internalID: 2248307555726064522
       vertices: []
       indices: 
       edges: []
