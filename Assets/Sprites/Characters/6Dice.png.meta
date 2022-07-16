@@ -53,12 +53,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 6Dice_0
+      name: PlayerConcept_0
       rect:
         serializedVersion: 2
         x: 0
@@ -129,14 +129,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 744cb9f889fcf1b30800000000000000
-      internalID: 4260352026667107399
+      spriteID: 392d1d834c9a72680800000000000000
+      internalID: -8779862288303533421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6Dice_1
+      name: PlayerConcept_1
       rect:
         serializedVersion: 2
         x: 16
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b61cc6587763f390800000000000000
-      internalID: -7785765564243503438
+      spriteID: f24c774ff9e915f80800000000000000
+      internalID: -8119534243333815249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6Dice_2
+      name: PlayerConcept_2
       rect:
         serializedVersion: 2
         x: 32
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c26957050707f1270800000000000000
-      internalID: 8223415072290346540
+      spriteID: bf946930b3d8f18c0800000000000000
+      internalID: -4026344257243166213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6Dice_3
+      name: PlayerConcept_3
       rect:
         serializedVersion: 2
         x: 48
@@ -192,8 +192,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29bb8a8f98d123c20800000000000000
-      internalID: 3184640364923894674
+      spriteID: 4be63c42e41733230800000000000000
+      internalID: 3617359506146815668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerConcept_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c857dda88c04f5f0800000000000000
+      internalID: -723939858928150334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerConcept_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee9ba014dee8f86a0800000000000000
+      internalID: -6444775392094275090
       vertices: []
       indices: 
       edges: []
