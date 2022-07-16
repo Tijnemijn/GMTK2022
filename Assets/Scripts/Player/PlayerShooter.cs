@@ -11,6 +11,7 @@ public class PlayerShooter : MonoBehaviour
     public List<GunType> gunTypes;
 
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform bulletSpawn;
 
     private GunInfo gun;
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class PlayerShooter : MonoBehaviour
         me = GetComponent<Player>();
         me.shooter = this;
         StartCoroutine(ShootRoutine());
+        gun = gunTypes.GetRandom().GenerateGunInfo();
     }
 
     // Update is called once per frame
@@ -33,30 +35,30 @@ public class PlayerShooter : MonoBehaviour
         {
             if (me.input.Shooting)
             {
-                for (int i = 0; i < gun.bulletsPerShot; i++)
-                {
-                    var deviation = Random.Range(-gun.aimDeviation, gun.aimDeviation);
-                    var bulletDir = (aim + new Vector2(-aim.x, aim.y) * deviation).normalized; 
-
-                    // todo: create spawn location transform
-                    var bullet = Instantiate(
-                        bulletPrefab, 
-                        me.transform.position + (Vector3)bulletDir * 0.5f, 
-                        Quaternion.LookRotation(Vector3.forward, bulletDir)
-                        );
-
-                    var controller = bullet.GetComponent<BulletController>();
-                    controller.bulletInfo = gun.bulletInfo;
-                    controller.velocity = bulletDir * gun.bulletSpeed;                    
-                }                
-
-                yield return Utils.WaitNonAlloc(0.2f);
+                Shoot();
+                yield return Utils.WaitNonAlloc(1f / gun.fireRate);
             }
             else yield return null;
         }
     }
     private void Shoot()
     {
+        for (int i = 0; i < gun.bulletsPerShot; i++)
+        {
+            var deviation = Random.Range(-gun.aimDeviation, gun.aimDeviation);
+            var bulletDir = (aim + new Vector2(-aim.y, aim.x) * deviation).normalized;
+
+            // todo: create spawn location transform
+            var bullet = Instantiate(
+                bulletPrefab,
+                bulletSpawn.position,
+                Quaternion.LookRotation(Vector3.forward, bulletDir)
+                );
+
+            var controller = bullet.GetComponent<BulletController>();
+            controller.bulletInfo = gun.bulletInfo;
+            controller.velocity = bulletDir * gun.bulletSpeed;
+        }
 
     }
     private void Aim()

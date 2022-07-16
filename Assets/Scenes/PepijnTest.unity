@@ -202,8 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b351464c4ac214996c1d90f19fa13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunTypes: []
-  bulletPrefab: {fileID: 0}
+  gunTypes:
+  - {fileID: 11400000, guid: 29ba57c7888656a4cbfdbdb073907568, type: 2}
+  bulletPrefab: {fileID: 3228115815869159303, guid: cdb3d03411ff0f44e8bdc4b7fbac3e55, type: 3}
 --- !u!4 &496429851
 Transform:
   m_ObjectHideFlags: 0
@@ -216,6 +217,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1740117419}
+  - {fileID: 1876176600}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -388,7 +390,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: -4026344257243166213, guid: a70da6b2870e4404eae701e0f48a3e7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -414,3 +416,33 @@ MonoBehaviour:
   animations:
   - {fileID: 11400000, guid: b4b7e1b220e921f42ba7f50f9e5c9578, type: 2}
   - {fileID: 11400000, guid: 2a19572ede7ec9245b40b4566d9f6fa2, type: 2}
+--- !u!1 &1876176599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1876176600}
+  m_Layer: 0
+  m_Name: bulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1876176600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876176599}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 496429851}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
