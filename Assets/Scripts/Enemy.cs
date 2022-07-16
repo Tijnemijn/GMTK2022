@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour
             if (diff.magnitude <= attackRange)
             {
                 // deal damage
-                Player.Instance.Damage(hitRate);
+                Player.Instance.Damage(damagePerHit);
                 Player.Instance.Knockback(diff.normalized * knockbackStrength);
                 Knockback(-diff.normalized * knockbackStrength);
                 // cooldown

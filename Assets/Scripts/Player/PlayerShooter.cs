@@ -35,6 +35,7 @@ public class PlayerShooter : MonoBehaviour
         {
             if (me.input.Shooting)
             {
+                
                 Shoot();
                 yield return Utils.WaitNonAlloc(1f / gun.fireRate);
             }
@@ -47,7 +48,7 @@ public class PlayerShooter : MonoBehaviour
         {
             var deviation = Random.Range(-gun.aimDeviation, gun.aimDeviation);
             var bulletDir = (aim + new Vector2(-aim.y, aim.x) * deviation).normalized;
-
+            me.Knockback(-bulletDir * gun.bulletSpeed * gun.bulletInfo.damage * 0.02f);
             // todo: create spawn location transform
             var bullet = Instantiate(
                 bulletPrefab,

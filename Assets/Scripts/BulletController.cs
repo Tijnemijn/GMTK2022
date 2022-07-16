@@ -40,6 +40,11 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("wall"))
+        {
+            DestroyBullet();
+            return;
+        }
         // TODO: deal damage / apply knockback
         if (other.TryGetComponent(out Enemy enemy))
         {
