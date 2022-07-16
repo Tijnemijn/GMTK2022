@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAmount: 0
-  spawnDelay: 0.8
+  spawnDelay: 0.7
   dice1Prefab: {fileID: 6963275602528689119, guid: 8953fca770b1b5a418f72d437fedb284, type: 3}
   dice2Prefab: {fileID: 5403464834745860091, guid: f63cd420030a83347a97a24609965471, type: 3}
   dice6Prefab: {fileID: 718934500285923065, guid: 02aee46b642ebb94c87d408383c6cfc9, type: 3}
