@@ -7,9 +7,9 @@ public class BulletController : MonoBehaviour
     public BulletInfo bulletInfo;
     public Vector2 velocity;
 
-    [SerializeField] private float damage;
-    [SerializeField] private float falloffMultiplier = 1;
-    [SerializeField] private float lifetime;
+    private float damage;
+    private float falloffMultiplier = 1;
+    private float lifetime;
 
     private Rigidbody2D rb;
 

@@ -17,6 +17,8 @@ public class GunType : ScriptableObject
     public float bulletFalloffSpeed;
     public float bulletMinDamageMultiplier;
 
+    public float aimDeviation;
+
     public GunInfo GenerateGunInfo()
     {
         BulletInfo b = new BulletInfo();
@@ -29,6 +31,7 @@ public class GunType : ScriptableObject
         GunInfo result = new GunInfo();
         
         result.bulletInfo = b;
+        result.aimDeviation = aimDeviation;
 
         result.bulletsPerShot = bulletsPerShot.Sample();
         result.bulletSpeed = bulletSpeed.Sample();
@@ -43,6 +46,7 @@ public struct GunInfo
     public int bulletsPerShot;
     public float fireRate;
     public float bulletSpeed;
+    public float aimDeviation;
     public BulletInfo bulletInfo;
 }
 
