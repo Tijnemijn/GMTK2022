@@ -65,8 +65,7 @@ public class Enemy : MonoBehaviour
     {
         while (true)
         {
-            var diff = target.position - transform.position;
-            Debug.Log(diff.magnitude);
+            var diff = target.position - transform.position;            
             if (diff.magnitude <= attackRange)
             {
                 // deal damage

@@ -43,6 +43,7 @@ public class GunType : ScriptableObject
     }
 }
 
+[System.Serializable]
 public struct GunInfo
 {
     public int bulletsPerShot;
