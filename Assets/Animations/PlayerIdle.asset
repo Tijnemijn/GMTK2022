@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc2de61ab7f8a7f4fb351bbaf644b414, type: 3}
-  m_Name: PlaterIdle
+  m_Name: PlayerIdle
   m_EditorClassIdentifier: 
   <Paused>k__BackingField: 0
   <Looping>k__BackingField: 1
   <FPS>k__BackingField: 10
   frames:
-  - {fileID: -8119534243333815249, guid: a70da6b2870e4404eae701e0f48a3e7e, type: 3}
+  - {fileID: -4026344257243166213, guid: a70da6b2870e4404eae701e0f48a3e7e, type: 3}
