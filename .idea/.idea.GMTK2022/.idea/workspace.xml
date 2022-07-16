@@ -81,7 +81,7 @@
       <workItem from="1657967955061" duration="288000" />
       <workItem from="1657968319713" duration="1168000" />
       <workItem from="1657972457639" duration="48000" />
-      <workItem from="1657973272461" duration="7422000" />
+      <workItem from="1657973272461" duration="8690000" />
     </task>
     <servers />
   </component>
@@ -93,37 +93,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/EnemySpawner.cs</url>
-          <line>21</line>
-          <properties documentPath="E:\Projects\GameJam\GMTK2022\GMTK2022\Assets\EnemySpawner.cs" initialLine="21" containingFunctionPresentation="method 'Start'">
-            <startOffsets>
-              <option value="568" />
-            </startOffsets>
-            <endOffsets>
-              <option value="618" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Enemy.cs</url>
-          <line>32</line>
-          <properties documentPath="E:\Projects\GameJam\GMTK2022\GMTK2022\Assets\Scripts\Enemy.cs" initialLine="32" containingFunctionPresentation="method 'Damage'">
-            <startOffsets>
-              <option value="902" />
-            </startOffsets>
-            <endOffsets>
-              <option value="935" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

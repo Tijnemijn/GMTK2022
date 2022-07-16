@@ -34,15 +34,15 @@ public class EnemySpawner : MonoBehaviour
 
     private void GetWave()
     {
-        waveAmount = waveAmount * 1.15f + 50;
+        waveAmount = 1500;//50 * wave * Mathf.Pow(1.02f, wave);
         GetEnemies(waveAmount);
     }
 
     private void GetEnemies(float amount)
     {
+        int loc = 0;
         while (amount > 0)
         {
-            int loc = 0;
             if (amount >= 60)
             {
                 loc = loc % locations.Length;
