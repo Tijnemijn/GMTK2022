@@ -7,6 +7,10 @@ public class PlayerShooter : MonoBehaviour
     private Player me;
 
     private Vector2 aim;
+
+    [SerializeField] public List<GunType> gunTypes;
+
+    private GunInfo gun;
     // Start is called before the first frame update
     void Start()
     {
