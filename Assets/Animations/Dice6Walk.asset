@@ -16,7 +16,7 @@ MonoBehaviour:
   <Looping>k__BackingField: 1
   <FPS>k__BackingField: 10
   frames:
-  - {fileID: 4260352026667107399, guid: 824fd7d413986234b87660ecd0c91eb3, type: 3}
-  - {fileID: -7785765564243503438, guid: 824fd7d413986234b87660ecd0c91eb3, type: 3}
-  - {fileID: 8223415072290346540, guid: 824fd7d413986234b87660ecd0c91eb3, type: 3}
-  - {fileID: 3184640364923894674, guid: 824fd7d413986234b87660ecd0c91eb3, type: 3}
+  - {fileID: -8779862288303533421, guid: 824fd7d413986234b87660ecd0c91eb3, type: 3}
+  - {fileID: -8119534243333815249, guid: 824fd7d413986234b87660ecd0c91eb3, type: 3}
+  - {fileID: -4026344257243166213, guid: 824fd7d413986234b87660ecd0c91eb3, type: 3}
+  - {fileID: 3617359506146815668, guid: 824fd7d413986234b87660ecd0c91eb3, type: 3}

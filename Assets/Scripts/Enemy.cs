@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     public bool Alive { get; private set; } = true;
 
     [field: SerializeField] public Transform SpriteObject { get; private set; }
+    [SerializeField] public EnemySpawner Spawner;
+    private GameObject spawner;
 
     private Rigidbody2D rb;
     private EntityController controller;
@@ -47,11 +49,13 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         Alive = false;
+        Spawner.enemyAmount--;
         Destroy(gameObject);
     }
 
     private void Start()
     {
+    
         Health = MaxHealth;
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<EntityController>();
