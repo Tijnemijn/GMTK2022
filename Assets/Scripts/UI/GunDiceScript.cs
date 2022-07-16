@@ -10,6 +10,8 @@ public class GunDiceScript : UIDiceScript
     public GunInfo gun;
     public TextMeshProUGUI gunTypeText;
     public TextMeshProUGUI gunInfoText;
+
+
     protected override void Animate()
     {
         rect.LeanMoveY(20, 0.1f)
