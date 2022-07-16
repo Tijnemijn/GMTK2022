@@ -12,7 +12,7 @@ public class GunType : ScriptableObject
     public FloatValueRange bulletDamage;
     [Space]
     public FloatValueRange fireRate;
-
+    
     public float bulletLifetime;
     public float bulletFalloffSpeed;
     public float bulletMinDamageMultiplier;
@@ -38,6 +38,9 @@ public class GunType : ScriptableObject
         result.bulletsPerShot = bulletsPerShot.Sample();
         result.bulletSpeed = bulletSpeed.Sample();
         result.fireRate = fireRate.Sample();
+        
+        result.startingDamage = b.damage;
+        result.startingFireRate = result.fireRate;
 
         return result;
     }
@@ -46,6 +49,8 @@ public class GunType : ScriptableObject
 [System.Serializable]
 public struct GunInfo
 {
+    public float startingFireRate;
+    public float startingDamage;
     public int bulletsPerShot;
     public float fireRate;
     public float bulletSpeed;

@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1215817770464939817, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6639369613406132928, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -175,6 +179,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6639369613406132929, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
+      propertyPath: enemySpawner
+      value: 
+      objectReference: {fileID: 773125074}
+    - target: {fileID: 6639369613406132929, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
       propertyPath: gunTypes.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -193,6 +201,18 @@ PrefabInstance:
     - target: {fileID: 6639369613406132941, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639369615255969539, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639369615255969539, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765817296745907046, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
@@ -244,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAmount: 0
+  wave: 0
   spawnDelay: 0.7
   dice1Prefab: {fileID: 6963275602528689119, guid: 8953fca770b1b5a418f72d437fedb284, type: 3}
   dice2Prefab: {fileID: 5403464834745860091, guid: f63cd420030a83347a97a24609965471, type: 3}

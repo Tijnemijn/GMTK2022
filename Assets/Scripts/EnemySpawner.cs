@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     public int enemyAmount;
     private Transform[] locations;
-    private int wave;
+    public int wave;
     private float waveAmount;
     [SerializeField]private float spawnDelay = 0.7f;
     
@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void GetWave()
     {
-        waveAmount = 1500;//50 * wave * Mathf.Pow(1.02f, wave);
+        waveAmount = 100 * wave * Mathf.Pow(1.01f, wave);
         int spawn1 = Random.Range(0, locations.Length);
         int spawn2 = Random.Range(0, locations.Length);;
         while (spawn1 == spawn2)

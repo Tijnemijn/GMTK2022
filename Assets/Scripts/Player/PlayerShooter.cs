@@ -8,8 +8,10 @@ public class PlayerShooter : MonoBehaviour
 
     private Vector2 lookDir;
 
-    public List<GunType> gunTypes;
+    private int lastWave = 0;
 
+    public List<GunType> gunTypes;
+    [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawn;
 
@@ -26,6 +28,10 @@ public class PlayerShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (lastWave != enemySpawner.wave)
+        {
+            gun.bulletInfo.damage = gun.startingDamage * Mathf.Pow(1.01f, enemySpawner.wave) * (0.98f *enemySpawner.wave); //increase damage each wave
+        }
         Aim();
     }
 
