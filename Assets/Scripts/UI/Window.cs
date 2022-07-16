@@ -55,9 +55,6 @@ public class Window : MonoBehaviour
 
     private void Update()
     {
-        if (IsOpen && Input.GetButtonDown("Cancel"))
-        {
-            Close();
-        }
+
     }
 }

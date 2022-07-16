@@ -8,12 +8,16 @@ using Quaternion = UnityEngine.Quaternion;
 public class EnemySpawner : MonoBehaviour
 {
 
+    [SerializeField] private Window diceWindow;
+    [Space]
+    
     public int enemyAmount;
     private Transform[] locations;
     public int wave;
     private float waveAmount;
-    [SerializeField]private float spawnDelay = 0.7f;
+    [SerializeField]private float spawnDelay = 0.6f;
     
+    [Space]
     [SerializeField] private Enemy dice1Prefab;
     [SerializeField] private Enemy dice2Prefab;
     [SerializeField] private Enemy dice6Prefab;
@@ -28,6 +32,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemyAmount == 0)
         {
+            diceWindow.Open();
             wave++;
             GetWave();
         }
