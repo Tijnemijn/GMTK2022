@@ -55,7 +55,6 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-    
         Health = MaxHealth;
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<EntityController>();
