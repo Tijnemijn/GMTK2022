@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
     {
         if (!Alive) return amount;
         float diff = amount - Health;
+        if(amount < 0) 
+            print("Damage is kleiner dan 0");
         Health -= amount;
 
         if (Health <= 0)

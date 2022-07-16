@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        locations =  this.GetComponentsInChildren<Transform>();
+        locations =  GetComponentsInChildren<Transform>();
     }
 
     // Update is called once per frame
