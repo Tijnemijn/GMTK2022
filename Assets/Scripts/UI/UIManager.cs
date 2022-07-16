@@ -16,4 +16,7 @@ public class UIManager : MonoBehaviour
 
     [HideInInspector] public Window currentWindow;
     public bool IsWindowOpened => currentWindow != null;
+
+    public bool IsPaused { get; private set; }
+
 }
