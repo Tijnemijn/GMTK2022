@@ -18,6 +18,7 @@ public class GunType : ScriptableObject
     public float bulletMinDamageMultiplier;
 
     public float aimDeviation;
+    public float knockbackStrength;
 
     public GunInfo GenerateGunInfo()
     {
@@ -27,6 +28,7 @@ public class GunType : ScriptableObject
         b.lifetime = bulletLifetime;
         b.falloffSpeed = bulletFalloffSpeed;
         b.minDamageMultiplier = bulletMinDamageMultiplier;
+        b.knockbackStrength = knockbackStrength;
 
         GunInfo result = new GunInfo();
         
