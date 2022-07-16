@@ -28,4 +28,4 @@ MonoBehaviour:
   bulletFalloffSpeed: 4
   bulletMinDamageMultiplier: 0.5
   aimDeviation: 0.04
-  knockbackStrength: 11
+  knockbackStrength: 16

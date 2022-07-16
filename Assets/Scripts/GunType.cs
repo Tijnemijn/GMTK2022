@@ -38,9 +38,10 @@ public class GunType : ScriptableObject
         result.bulletsPerShot = bulletsPerShot.Sample();
         result.bulletSpeed = bulletSpeed.Sample();
         result.fireRate = fireRate.Sample();
-        
+
         result.startingDamage = b.damage;
         result.startingFireRate = result.fireRate;
+        
 
         return result;
     }
