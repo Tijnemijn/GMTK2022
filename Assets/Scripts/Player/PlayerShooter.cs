@@ -6,7 +6,7 @@ public class PlayerShooter : MonoBehaviour
 {
     private Player me;
 
-    private Vector2 aim;
+    private Vector2 lookDir;
 
     public List<GunType> gunTypes;
 
@@ -46,7 +46,12 @@ public class PlayerShooter : MonoBehaviour
     {
         for (int i = 0; i < gun.bulletsPerShot; i++)
         {
+
             var deviation = Random.Range(-gun.aimDeviation, gun.aimDeviation);
+
+            Vector2 mousePosition = Utils.GetWorldSpaceMousePosition();
+            var aim = (mousePosition - (Vector2)bulletSpawn.position).SafeNormalize();
+
             var bulletDir = (aim + new Vector2(-aim.y, aim.x) * deviation).normalized;
             me.Knockback(-bulletDir * gun.bulletSpeed * gun.bulletInfo.damage * 0.02f);
             // todo: create spawn location transform
@@ -65,10 +70,10 @@ public class PlayerShooter : MonoBehaviour
     private void Aim()
     {
         Vector2 mousePosition = Utils.GetWorldSpaceMousePosition();
-        aim = (mousePosition - (Vector2)me.transform.position).SafeNormalize();
-        if (aim == Vector2.zero) aim = Vector2.up;
+        lookDir = (mousePosition - (Vector2)me.transform.position).SafeNormalize();
+        if (lookDir == Vector2.zero) lookDir = Vector2.up;
 
-        var aimRot = Quaternion.LookRotation(Vector3.forward, aim);
+        var aimRot = Quaternion.LookRotation(Vector3.forward, lookDir);
         me.SpriteObject.rotation = Quaternion.Slerp(me.SpriteObject.rotation, aimRot, Time.deltaTime * 24f);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
-{    
+{        
     public BulletInfo bulletInfo;
     public Vector2 velocity;
 
@@ -12,6 +12,8 @@ public class BulletController : MonoBehaviour
     private float lifetime;
 
     private Rigidbody2D rb;
+
+    private bool isDestroyed = false;
 
     private void Start()
     {
@@ -30,6 +32,7 @@ public class BulletController : MonoBehaviour
 
     private void DestroyBullet()
     {
+        isDestroyed = true;
         rb.velocity = Vector2.zero;
         
         // TODO: show some animation
@@ -40,6 +43,7 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isDestroyed) return;
         if (other.CompareTag("wall"))
         {
             DestroyBullet();

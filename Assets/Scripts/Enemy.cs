@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
     }
     public void Knockback(Vector2 amount)
     {
-        rb.velocity += amount;
+        rb.AddForce(amount, ForceMode2D.Impulse);
     }
 
     public void Die()

@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: gunTypes.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 29ba57c7888656a4cbfdbdb073907568, type: 2}
+    - target: {fileID: 6639369613406132940, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6639369613406132941, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
       propertyPath: m_Name
       value: Player
