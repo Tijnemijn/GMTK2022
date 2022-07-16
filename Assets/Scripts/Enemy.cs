@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public bool Alive { get; private set; } = true;
 
     [field: SerializeField] public Transform SpriteObject { get; private set; }
+    private SpriteRenderer spriteRenderer;
     [SerializeField] public EnemySpawner Spawner;
     private GameObject spawner;
 
@@ -36,12 +37,19 @@ public class Enemy : MonoBehaviour
         if (Health <= 0)
         {
             Die();
-            return 0;
+            return diff;
         }        
         else
         {
-            return diff;
+            StartCoroutine(FlashRed());
+            return 0;
         }
+    }
+    private IEnumerator FlashRed()
+    {
+        spriteRenderer.color = Color.red;
+        yield return Utils.WaitNonAlloc(0.03f);
+        spriteRenderer.color = Color.white;
     }
     public void Knockback(Vector2 amount)
     {
@@ -57,12 +65,13 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-    
+        
         Health = MaxHealth;
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<EntityController>();
         target = Player.Instance.transform;
         transform = base.transform;
+        spriteRenderer = SpriteObject.GetComponent<SpriteRenderer>();
 
         StartCoroutine(HitRoutine());
     }
