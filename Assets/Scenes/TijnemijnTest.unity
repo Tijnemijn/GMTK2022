@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 29ba57c7888656a4cbfdbdb073907568, type: 2}
     - target: {fileID: 6639369613406132940, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
       propertyPath: m_Mass
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6639369613406132941, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
       propertyPath: m_Name
@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAmount: 0
+  spawnDelay: 0.8
   dice1Prefab: {fileID: 6963275602528689119, guid: 8953fca770b1b5a418f72d437fedb284, type: 3}
   dice2Prefab: {fileID: 5403464834745860091, guid: f63cd420030a83347a97a24609965471, type: 3}
   dice6Prefab: {fileID: 718934500285923065, guid: 02aee46b642ebb94c87d408383c6cfc9, type: 3}

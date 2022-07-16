@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     private Transform[] locations;
     private int wave;
     private float waveAmount;
+    [SerializeField]private float spawnDelay = 0.7f;
     
     [SerializeField] private Enemy dice1Prefab;
     [SerializeField] private Enemy dice2Prefab;
@@ -35,35 +36,48 @@ public class EnemySpawner : MonoBehaviour
     private void GetWave()
     {
         waveAmount = 1500;//50 * wave * Mathf.Pow(1.02f, wave);
-        GetEnemies(waveAmount);
+        int spawn1 = Random.Range(0, locations.Length);
+        int spawn2 = Random.Range(0, locations.Length);;
+        while (spawn1 == spawn2)
+        {
+            spawn2 = Random.Range(0, locations.Length);
+        }
+
+        Transform[] spawns = { locations[spawn1], locations[spawn2] };
+        StartCoroutine(GetEnemies(waveAmount, spawns));
     }
 
-    private void GetEnemies(float amount)
+    private IEnumerator GetEnemies( float amount, Transform[] spawns)
     {
         int loc = 0;
         while (amount > 0)
         {
+            if (loc == 2)
+            {
+                loc = 0;
+                yield return Utils.WaitNonAlloc(spawnDelay);
+            }
+            
             if (amount >= 60)
             {
-                loc = loc % locations.Length;
                 int number = Random.Range(0, 3);
                 if (number == 0)
                 {
-                    var enemy = Instantiate(dice1Prefab, locations[loc].position, new Quaternion(0, 0, 0, 0));
+                    var enemy = Instantiate(dice1Prefab, spawns[loc].position, new Quaternion(0, 0, 0, 0));
                     enemyAmount++;
                     enemy.Spawner = this;
                     amount -= enemy.MaxHealth;
                 }
                 else if (number == 1)
                 {
-                    var enemy = Instantiate(dice2Prefab, locations[loc].position, new Quaternion(0, 0, 0, 0));
+                    var enemy = Instantiate(dice2Prefab, spawns[loc].position, new Quaternion(0, 0, 0, 0));
                     enemyAmount++;
                     enemy.Spawner = this;
                     amount -= enemy.MaxHealth;
                 }
                 else
                 {
-                    var enemy = Instantiate(dice6Prefab, locations[loc].position, new Quaternion(0, 0, 0, 0));
+                    var enemy = Instantiate(dice6Prefab, spawns[loc].position, new Quaternion(0, 0, 0, 0));
                     enemyAmount++;
                     enemy.Spawner = this;
                     amount -= enemy.MaxHealth;
@@ -75,14 +89,14 @@ public class EnemySpawner : MonoBehaviour
                 int number = Random.Range(0, 2);
                 if (number == 0)
                 {
-                    var enemy = Instantiate(dice1Prefab, locations[loc].position, new Quaternion(0, 0, 0, 0));
+                    var enemy = Instantiate(dice1Prefab, spawns[loc].position, new Quaternion(0, 0, 0, 0));
                     enemyAmount++;
                     enemy.Spawner = this;
                     amount -= enemy.MaxHealth;
                 }
                 else if (number == 1)
                 {
-                    var enemy = Instantiate(dice2Prefab, locations[loc].position, new Quaternion(0, 0, 0, 0));
+                    var enemy = Instantiate(dice2Prefab, spawns[loc].position, new Quaternion(0, 0, 0, 0));
                     enemyAmount++;
                     enemy.Spawner = this;
                     amount -= enemy.MaxHealth;
