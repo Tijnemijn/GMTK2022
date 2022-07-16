@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [field: SerializeField] public float MaxHealth { get; private set; }
+    public float Health { get; private set; }
+    public bool Alive { get; private set; } = true;
+
+    private static Player instance;
+    public static Player Instance => instance ?? throw new System.Exception("Singleton was not initialized");
+
     internal PlayerInput input;   
     internal PlayerShooter shooter;
 
     private EntityController controller;
     private SpriteAnimator animator;
+    private Rigidbody2D rb;
 
     private Vector2 motionInput;
 
@@ -16,12 +24,46 @@ public class Player : MonoBehaviour
 
     [field: SerializeField] public Transform SpriteObject { get; private set; }
 
+    public float Damage(float amount)
+    {
+        if (!Alive) return amount;
+        float diff = amount - Health;
+        Health -= amount;
+
+        if (Health <= 0)
+        {
+            Die();
+            return 0;
+        }
+        else
+        {
+            return diff;
+        }
+    }
+    public void Knockback(Vector2 amount)
+    {
+        rb.velocity += amount;
+    }
+    private void Die()
+    {
+        Alive = false;
+        // don't destroy player here
+    }
+
+    private void Awake()
+    {
+        if (!instance) instance = this;
+        else Destroy(gameObject);
+        transform = base.transform;
+    }
+
     void Start()
     {
+        Health = MaxHealth;
+        rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<EntityController>();
         motionInput = Vector2.zero;
-
-        transform = base.transform;
+        
         animator = SpriteObject.GetComponent<SpriteAnimator>();
     }
 

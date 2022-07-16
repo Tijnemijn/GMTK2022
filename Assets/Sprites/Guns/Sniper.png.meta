@@ -59,9 +59,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 8
@@ -121,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerConcept_0
+      name: Sniper_0
       rect:
         serializedVersion: 2
         x: 0
@@ -135,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 392d1d834c9a72680800000000000000
-      internalID: -8779862288303533421
+      spriteID: 98b89c13a7b794e90800000000000000
+      internalID: -7040960777665541239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerConcept_1
+      name: Sniper_1
       rect:
         serializedVersion: 2
         x: 16
@@ -156,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f24c774ff9e915f80800000000000000
-      internalID: -8119534243333815249
+      spriteID: cf162152b1c4f53e0800000000000000
+      internalID: -2062846424842608132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerConcept_2
+      name: Sniper_2
       rect:
         serializedVersion: 2
         x: 32
@@ -177,14 +177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf946930b3d8f18c0800000000000000
-      internalID: -4026344257243166213
+      spriteID: 99266c48d38760e90800000000000000
+      internalID: -7059823160240741735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerConcept_3
+      name: Sniper_3
       rect:
         serializedVersion: 2
         x: 48
@@ -198,14 +198,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4be63c42e41733230800000000000000
-      internalID: 3617359506146815668
+      spriteID: 37476672dc7b27ac0800000000000000
+      internalID: -3858819838945889165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerConcept_4
+      name: Sniper_4
       rect:
         serializedVersion: 2
         x: 64
@@ -219,14 +219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c857dda88c04f5f0800000000000000
-      internalID: -723939858928150334
+      spriteID: 94ef2dddc30887d80800000000000000
+      internalID: -8252705318248448439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerConcept_5
+      name: Sniper_5
       rect:
         serializedVersion: 2
         x: 80
@@ -240,8 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee9ba014dee8f86a0800000000000000
-      internalID: -6444775392094275090
+      spriteID: 2965b38a9c1cb0ad0800000000000000
+      internalID: -2734879276842396014
       vertices: []
       indices: 
       edges: []
