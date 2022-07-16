@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: New Gun Type
   m_EditorClassIdentifier: Assembly-CSharp::GunType
   bulletsPerShot:
+    min: 1
+    max: 1
+  bulletSpeed:
+    min: 10
+    max: 10
+  bulletDamage:
     min: 6
     max: 8
-  bulletSpeed:
-    min: 12
-    max: 12
-  bulletDamage:
-    min: 4
-    max: 6
   fireRate:
-    min: 1.8
-    max: 1.8
-  bulletLifetime: 0.15
-  bulletFalloffSpeed: 3
+    min: 10
+    max: 10
+  bulletLifetime: 4
+  bulletFalloffSpeed: 4
   bulletMinDamageMultiplier: 0.5
-  aimDeviation: 0.25
+  aimDeviation: 0.05
+  knockbackStrength: 11

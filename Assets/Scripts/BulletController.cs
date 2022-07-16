@@ -41,9 +41,17 @@ public class BulletController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // TODO: deal damage / apply knockback
-        
-        // destroy bullet
-        if (damage <= 0) DestroyBullet();
+        if (other.TryGetComponent(out Enemy enemy))
+        {
+            damage = enemy.Damage(damage);
+
+            // destroy bullet
+            if (damage <= 0)
+            {
+                enemy.Knockback(velocity.normalized * bulletInfo.knockbackStrength);
+                DestroyBullet();
+            }
+        }        
     }
 }
 
@@ -54,12 +62,14 @@ public struct BulletInfo
     public float falloffSpeed;
     public float minDamageMultiplier;
     public float lifetime;
+    public float knockbackStrength;
 
-    public BulletInfo(float damage, float falloffSpeed, float minDamageMultiplier, float lifetime)
+    public BulletInfo(float damage, float falloffSpeed, float minDamageMultiplier, float lifetime, float knockbackStrength)
     {
         this.damage = damage;
         this.falloffSpeed = falloffSpeed;
         this.minDamageMultiplier = minDamageMultiplier;
         this.lifetime = lifetime;
+        this.knockbackStrength = knockbackStrength;
     }
 }
