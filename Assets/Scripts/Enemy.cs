@@ -30,6 +30,9 @@ public class Enemy : MonoBehaviour
     public float Damage(float amount)
     {
         if (!Alive) return amount;
+        
+        StartCoroutine(DamageRoutine());
+        
         float diff = amount - Health;
         Health -= amount;
 
@@ -43,6 +46,15 @@ public class Enemy : MonoBehaviour
             return 0;
         }
     }
+    
+    private IEnumerator DamageRoutine()
+    {
+        var sprite = SpriteObject.GetComponent<SpriteRenderer>();
+        sprite.color = Color.red;
+        yield return Utils.WaitNonAlloc(0.1f);
+        sprite.color = Color.white;
+    }
+    
     public void Knockback(Vector2 amount)
     {
         rb.AddForce(amount * 5, ForceMode2D.Impulse);
@@ -88,6 +100,8 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+    
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
