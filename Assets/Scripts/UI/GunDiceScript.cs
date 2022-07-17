@@ -29,9 +29,11 @@ public class GunDiceScript : UIDiceScript
     }
     public override void ResetAnimation()
     {
-        //rect.LeanSize(new Vector2(100, 100), 0f);
-        //valueText.alpha = 0;
-        //used = false;
+        rect.LeanSize(new Vector2(100, 100), 0f);
+        gunInfoText.alpha = 0;
+        gunTypeText.alpha = 0;
+        used = false;
+        opened = false;
     }
     public IEnumerator RollValue()
     {

@@ -25,6 +25,7 @@ public class HealthDiceScript : UIDiceScript
         rect.LeanSize(new Vector2(100, 100), 0f);
         valueText.alpha = 0;
         used = false;
+        opened = false;
     }
     public IEnumerator RollValue()
     {
