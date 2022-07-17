@@ -11,7 +11,7 @@ public class PlayerShooter : MonoBehaviour
     private int lastWave = 0;
 
     public List<GunType> gunTypes;
-    [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] public EnemySpawner enemySpawner;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawn;
     [Space] 

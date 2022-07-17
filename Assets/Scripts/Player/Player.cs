@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -91,6 +92,9 @@ public class Player : MonoBehaviour
     {
         Alive = false;
         // don't destroy player here
+        SceneManager.LoadScene("Scenes/GameOver");
+        SceneManager.MoveGameObjectToScene(GameObject.Find("Canvas"),SceneManager.GetSceneByBuildIndex(2));
+        
     }
 
     private void Awake()
