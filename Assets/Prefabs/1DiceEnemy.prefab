@@ -145,11 +145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6cfa2f3453dd7241b846d4d69e15d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 15
-  damagePerHit: 1
+  <MaxHealth>k__BackingField: 10
+  damagePerHit: 2
   hitRate: 2
-  attackRange: 1.5
-  knockbackStrength: 15
+  attackRange: 1
+  knockbackStrength: 5
   <SpriteObject>k__BackingField: {fileID: 6963275602418130473}
   Spawner: {fileID: 0}
 --- !u!114 &6963275602528689116
@@ -190,7 +190,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.42, y: 0.4}
+  m_Size: {x: 0.25, y: 0.25}
   m_EdgeRadius: 0
 --- !u!50 &7628058185172171660
 Rigidbody2D:
@@ -211,7 +211,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1859810031878336533
 BoxCollider2D:
@@ -237,5 +237,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.56, y: 0.55}
+  m_Size: {x: 0.6, y: 0.6}
   m_EdgeRadius: 0

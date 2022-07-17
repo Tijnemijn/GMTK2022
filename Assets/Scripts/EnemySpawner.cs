@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     private float waveAmount;
     private bool wasDicewindow;
     private bool isCountingDown = false;
+    private bool isSpawningEnemies = false;
     [SerializeField]private float spawnDelay = 0.6f;
     
     [Space]
@@ -34,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemyAmount == 0)
+        if (enemyAmount == 0 && !isSpawningEnemies)
         {            
             if (!wasDicewindow && !isCountingDown)
             {
@@ -91,6 +92,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator GetEnemies( float amount, Transform[] spawns)
     {
+        isSpawningEnemies = true;
         int loc = 0;
         while (amount > 0)
         {
@@ -100,7 +102,7 @@ public class EnemySpawner : MonoBehaviour
                 yield return Utils.WaitNonAlloc(spawnDelay);
             }
             
-            if (amount >= 60)
+            if (amount >= 150)
             {
                 int number = Random.Range(0, 3);
                 if (number == 0)
@@ -146,5 +148,6 @@ public class EnemySpawner : MonoBehaviour
             }
             loc++;
         }
+        isSpawningEnemies = false;
     }
 }
