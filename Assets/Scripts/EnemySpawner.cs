@@ -28,6 +28,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Enemy dice1Prefab;
     [SerializeField] private Enemy dice2Prefab;
     [SerializeField] private Enemy dice6Prefab;
+
+    private int spawn1, spawn2;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +54,21 @@ public class EnemySpawner : MonoBehaviour
             }
             else if (!isCountingDown)
             {
+                spawn1 = Random.Range(0, locations.Length);
+                spawn2 = Random.Range(0, locations.Length);;
+                while (spawn1 == spawn2)
+                {
+                    spawn2 = Random.Range(0, locations.Length);
+                }
+                spawn.SetActive(false);
+                for(int i = 1; i<locations.Length;i++)
+                    locations[i].gameObject.SetActive(false);
+            
+                locations[spawn1].gameObject.SetActive(true);
+                locations[spawn2].gameObject.SetActive(true);
+                if(spawn1 == 0 || spawn2 == 0)
+                    spawn.SetActive(true);
+                
                 UIManager.Instance.StartCountdown();
                 wave++;
                 wasDicewindow = false;
@@ -82,21 +99,7 @@ public class EnemySpawner : MonoBehaviour
     {
         isCountingDown = false;   
         waveAmount = 100 * wave * Mathf.Pow(1.01f, wave);
-        int spawn1 = Random.Range(0, locations.Length);
-        int spawn2 = Random.Range(0, locations.Length);;
-        while (spawn1 == spawn2)
-        {
-            spawn2 = Random.Range(0, locations.Length);
-        }
-        spawn.SetActive(false);
-        for(int i = 1; i<locations.Length;i++)
-            locations[i].gameObject.SetActive(false);
-            
-        locations[spawn1].gameObject.SetActive(true);
-        locations[spawn2].gameObject.SetActive(true);
-        if(spawn1 == 0 || spawn2 == 0)
-            spawn.SetActive(true);
-        
+
         Transform[] spawns = { locations[spawn1], locations[spawn2] };
         StartCoroutine(GetEnemies(waveAmount, spawns));
     }

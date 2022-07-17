@@ -64,7 +64,7 @@ public class PlayerShooter : MonoBehaviour
             var aim = (mousePosition - (Vector2)bulletSpawn.position).SafeNormalize();
 
             var bulletDir = (aim + new Vector2(-aim.y, aim.x) * deviation).normalized;
-            me.Knockback(-bulletDir * gun.bulletInfo.knockbackStrength * 0.02f);
+            me.Knockback(-bulletDir * gun.bulletInfo.knockbackStrength * 0.2f);
             // todo: create spawn location transform
             var bullet = Instantiate(
                 bulletPrefab,

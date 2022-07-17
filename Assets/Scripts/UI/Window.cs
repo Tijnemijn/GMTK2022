@@ -15,7 +15,7 @@ public class Window : MonoBehaviour
     [SerializeField] private HealthDiceScript health;
     [SerializeField] private GunDiceScript gun;
 
-    private float waittime = 1f;
+
     public void Open()
     {
         if (IsOpen) return;
