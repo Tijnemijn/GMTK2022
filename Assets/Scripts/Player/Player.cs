@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [field: SerializeField] public float MaxHealth { get; private set; }
-    public float Health { get; private set; }
+    public float Health { get; set; }
     public bool Alive { get; private set; } = true;
 
     private static Player instance;
