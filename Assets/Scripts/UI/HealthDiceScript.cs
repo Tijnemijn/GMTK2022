@@ -5,6 +5,7 @@ using TMPro;
 
 public class HealthDiceScript : UIDiceScript
 {
+    [SerializeField] private Player player;
     public TextMeshProUGUI valueText;
     public int value;
     public bool used;
@@ -31,11 +32,12 @@ public class HealthDiceScript : UIDiceScript
     {
         for (int i = 0; i < 20; i++)
         {
-            value = Random.Range(0, 50);
+            value = Random.Range(0, 15);
             valueText.text = $"+ {value}";
             yield return Utils.WaitNonAlloc(0.04f);
         }
 
+        player.Health = Mathf.Min(player.MaxHealth, player.Health + value);
         used = true;
     }
 }

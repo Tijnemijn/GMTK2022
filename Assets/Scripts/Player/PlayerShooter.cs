@@ -14,8 +14,12 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawn;
+    [Space] 
+    [SerializeField] private GameObject shotgunSprite;
+    [SerializeField] private GameObject sniperSprite;
+    [SerializeField] private GameObject arSprite;
 
-    private GunInfo gun;
+    public GunInfo gun;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +63,7 @@ public class PlayerShooter : MonoBehaviour
             var aim = (mousePosition - (Vector2)bulletSpawn.position).SafeNormalize();
 
             var bulletDir = (aim + new Vector2(-aim.y, aim.x) * deviation).normalized;
-            me.Knockback(-bulletDir * gun.bulletSpeed * gun.bulletInfo.damage * 0.02f);
+            me.Knockback(-bulletDir * gun.bulletInfo.knockbackStrength * 0.02f);
             // todo: create spawn location transform
             var bullet = Instantiate(
                 bulletPrefab,
@@ -81,5 +85,27 @@ public class PlayerShooter : MonoBehaviour
 
         var aimRot = Quaternion.LookRotation(Vector3.forward, lookDir);
         me.SpriteObject.rotation = Quaternion.Slerp(me.SpriteObject.rotation, aimRot, Time.deltaTime * 24f);
+    }
+
+    public void ChangeSprite(string type)
+    {
+        if (type == "Sniper")
+        {
+            sniperSprite.SetActive(true);
+            arSprite.SetActive(false);
+            shotgunSprite.SetActive(false);
+        }
+        else if (type == "AR")
+        {
+            sniperSprite.SetActive(false);
+            arSprite.SetActive(true);
+            shotgunSprite.SetActive(false);
+        }
+        else
+        {
+            sniperSprite.SetActive(false);
+            arSprite.SetActive(false);
+            shotgunSprite.SetActive(true);
+        }
     }
 }
