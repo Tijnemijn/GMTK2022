@@ -22,22 +22,33 @@ public class Player : MonoBehaviour
 
     internal new Transform transform;
 
+    private int iframes = 0;
+    [SerializeField] private int iframeAmount = 270;
+    private int lastFrame;
+
     [field: SerializeField] public Transform SpriteObject { get; private set; }
 
     public float Damage(float amount)
     {
         if (!Alive) return amount;
-        float diff = amount - Health;
-        Health -= amount;
+        {
+            if (iframes <= 0)
+            {
+                float diff = amount - Health;
+                Health -= amount;
 
-        if (Health <= 0)
-        {
-            Die();
-            return 0;
-        }
-        else
-        {
-            return diff;
+                if (Health <= 0)
+                {
+                    Die();
+                    return 0;
+                }
+                else
+                {
+                    iframes = iframeAmount;
+                    return diff;
+                }
+            }
+            return amount;
         }
     }
     public void Knockback(Vector2 amount)
@@ -75,6 +86,9 @@ public class Player : MonoBehaviour
             animator.SwitchAnimation("PlayerIdle");
         else
             animator.SwitchAnimation("PlayerWalkAnim");
+
+        iframes -= Time.frameCount - lastFrame;
+        lastFrame = Time.frameCount;
     }
 
     private void FixedUpdate()
