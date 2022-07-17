@@ -609,6 +609,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7b92e24c94d24d34fbe1ff305de5c946, type: 2}
     - target: {fileID: 6639369613406132931, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
+      propertyPath: lowHP
+      value: 
+      objectReference: {fileID: 645968746}
+    - target: {fileID: 6639369613406132931, guid: 9e76e91db3adaa24499a2332bedbfc5d, type: 3}
       propertyPath: stepSFX
       value: 
       objectReference: {fileID: 228541348}
@@ -1384,7 +1388,7 @@ GameObject:
   - component: {fileID: 645968749}
   - component: {fileID: 645968748}
   m_Layer: 5
-  m_Name: Image
+  m_Name: LowHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

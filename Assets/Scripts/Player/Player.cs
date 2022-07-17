@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
 
 
     [SerializeField] private float stunTime = 1f;
+    [Space] [SerializeField] private GameObject lowHP;
     public bool IsInvincible { get; private set; }
 
     [field: SerializeField] public Transform SpriteObject { get; private set; }
@@ -55,7 +56,15 @@ public class Player : MonoBehaviour
 
         float diff = amount - Health;
 
-        Health -= amount;        
+        Health -= amount;
+        
+        if(Health < 10)
+            lowHP.SetActive(true);
+        else
+        {
+            lowHP.SetActive(false);
+        }
+        
         if (Health <= 0)
         {
             Die();
@@ -106,6 +115,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        lowHP.SetActive(false);
         Health = MaxHealth;
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<EntityController>();
