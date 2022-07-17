@@ -9,8 +9,10 @@ public class HealthDiceScript : UIDiceScript
     public TextMeshProUGUI valueText;
     public int value;
     public bool used;
+    public AudioSource clickSFX, rollSFX, landSFX;
     protected override void Animate()
     {
+        clickSFX.Play();
         rect.LeanMoveY(20, 0.1f)
             .setEaseOutQuad()
             .setOnComplete(_ => rect.LeanMoveY(0, 0.1f).setEaseInQuad());
@@ -30,11 +32,14 @@ public class HealthDiceScript : UIDiceScript
     }
     public IEnumerator RollValue()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 30; i++)
         {
-            value = Random.Range(0, 15);
-            valueText.text = $"+ {value}";
             yield return Utils.WaitNonAlloc(0.04f);
+            value = Random.Range(0, 15);
+            valueText.text = $"+ {value}";            
+
+            if (i == 29) landSFX.Play();
+            else if (i % 3 == 0) rollSFX.Play();
         }
 
         player.Health = Mathf.Min(player.MaxHealth, player.Health + value);

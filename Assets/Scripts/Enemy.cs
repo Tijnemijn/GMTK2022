@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
 
     public bool Alive { get; private set; } = true;
 
+
+
     [field: SerializeField] public Transform SpriteObject { get; private set; }
     [SerializeField] public EnemySpawner Spawner;
     private GameObject spawner;
@@ -29,23 +31,21 @@ public class Enemy : MonoBehaviour
     {
         if (!Alive) return amount;
         float diff = amount - Health;
-        if(amount < 0) 
-            print("Damage is kleiner dan 0");
         Health -= amount;
 
         if (Health <= 0)
         {
             Die();
-            return 0;
+            return diff;
         }        
         else
         {
-            return diff;
+            return 0;
         }
     }
     public void Knockback(Vector2 amount)
     {
-        rb.AddForce(amount, ForceMode2D.Impulse);
+        rb.AddForce(amount * 5, ForceMode2D.Impulse);
     }
 
     public void Die()
@@ -72,8 +72,9 @@ public class Enemy : MonoBehaviour
         while (true)
         {
             var diff = target.position - transform.position;            
-            if (diff.magnitude <= attackRange)
+            if (!Player.Instance.IsInvincible && diff.magnitude <= attackRange)
             {
+                
                 // deal damage
                 Player.Instance.Damage(damagePerHit);
                 Player.Instance.Knockback(diff.normalized * knockbackStrength);

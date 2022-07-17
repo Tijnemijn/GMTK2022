@@ -42,11 +42,11 @@ public class ArenaTile : MonoBehaviour
     {
         if (other.TryGetComponent(out Enemy enemy))
         {
-            enemy.Damage(2f * Time.deltaTime);
+            enemy.Damage(10f * Time.deltaTime);
         }
         else if (other.TryGetComponent(out Player player))
         {
-            player.Damage(2f * Time.deltaTime);
+            player.Damage(5f * Time.deltaTime, true);
         }
     }
 }
