@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +9,13 @@ public class Window : MonoBehaviour
     
     [SerializeField] private RectTransform content;
     [SerializeField] private RectTransform backdrop;
+    [SerializeField] private GameObject closeButton;
 
     [Space]
     [SerializeField] private HealthDiceScript health;
     [SerializeField] private GunDiceScript gun;
-    
 
+    private float waittime = 1f;
     public void Open()
     {
         if (IsOpen) return;
@@ -29,15 +31,22 @@ public class Window : MonoBehaviour
         
         LeanTween.cancel(backdrop);
         LeanTween.alpha(backdrop, 0.5f, 0.5f);
+        
+        closeButton.SetActive(false);
     }
 
     public void Close()
     {
         if (!IsOpen) return;
-        UIManager.Instance.currentWindow = null;        
+        UIManager.Instance.currentWindow = null;
 
-        IsOpen = false;
         
+        gun.used = false;
+        gun.ResetAnimation();
+        health.used = false;
+        health.ResetAnimation();
+        IsOpen = false;
+
         LeanTween.cancel(content);
         LeanTween.scale(content, Vector3.zero, 0.3f)
             .setEaseInBack()
@@ -60,13 +69,10 @@ public class Window : MonoBehaviour
 
     private void Update()
     {
-        if (gun.used == true && health.used == true)
+        if (gun.used && health.used && IsOpen)
         {
-            gun.used = false;
-            health.used = false;
-            gun.ResetAnimation();
-            health.ResetAnimation();
-            Close();
+            closeButton.SetActive(true);
         }
     }
+    
 }

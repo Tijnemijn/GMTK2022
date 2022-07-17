@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GunDiceScript : UIDiceScript
 {
+    [SerializeField] private PlayerShooter playerShooter;
     public List<GunType> gunTypes;
     public GunType type;
     public GunInfo gun;
@@ -42,6 +43,7 @@ public class GunDiceScript : UIDiceScript
             type = gunTypes.GetRandom();
             gunTypeText.text = $"{type.name}";
             gun = type.GenerateGunInfo();
+            gun.Type = type.name;
             gunInfoText.text = 
                 $"DMG: {gun.bulletInfo.damage:F2}\n" +
                 $"Firerate: {gun.fireRate:F2}\n" +
@@ -51,6 +53,8 @@ public class GunDiceScript : UIDiceScript
             
         }
 
+        playerShooter.gun = gun;
+        playerShooter.ChangeSprite(gun.Type);
         used = true;
     }
 }
