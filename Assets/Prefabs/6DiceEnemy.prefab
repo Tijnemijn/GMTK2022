@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 718934498907277436}
   - component: {fileID: 718934498907277438}
   - component: {fileID: 718934498907277439}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 6Dice_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 718934500285921542}
   - component: {fileID: 6986584777226386338}
   - component: {fileID: 7065138241295314141}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 6DiceEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

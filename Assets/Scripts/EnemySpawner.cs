@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 diceWindow.Open();
                 wasDicewindow = true;
-                ChangeTiles();
+                
             }
 
             if (diceWindow.IsOpen)
@@ -47,6 +47,7 @@ public class EnemySpawner : MonoBehaviour
             }
             else
             {
+                ChangeTiles();
                 wave++;
                 GetWave();
                 wasDicewindow = false;
@@ -57,9 +58,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void ChangeTiles()
     {
-        ArenaTileType type = (ArenaTileType)Random.Range(0, 3);
+        
         foreach (var tile in arenaTiles)
         {
+            ArenaTileType type = (ArenaTileType)Random.Range(0, 3);
             tile.SwitchToType(type);
         }
         

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6963275602418130473}
   - component: {fileID: 6963275602418130472}
   - component: {fileID: 2736175261229400251}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 1Dice_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 5253707368511485581}
   - component: {fileID: 7628058185172171660}
   - component: {fileID: 1859810031878336533}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 1DiceEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
