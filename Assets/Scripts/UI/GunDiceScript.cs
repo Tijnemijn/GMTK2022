@@ -13,9 +13,11 @@ public class GunDiceScript : UIDiceScript
     public TextMeshProUGUI gunInfoText;
     public bool used;
 
+    public AudioSource clickSFX, rollSFX, landSFX;
 
     protected override void Animate()
     {
+        clickSFX.Play();
         rect.LeanMoveY(20, 0.1f)
             .setEaseOutQuad()
             .setOnComplete(_ => rect.LeanMoveY(0, 0.1f).setEaseInQuad());
@@ -38,8 +40,9 @@ public class GunDiceScript : UIDiceScript
     }
     public IEnumerator RollValue()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 30; i++)
         {
+            yield return Utils.WaitNonAlloc(0.04f);            
             type = gunTypes.GetRandom();
             gunTypeText.text = $"{type.name}";
             gun = type.GenerateGunInfo();
@@ -49,10 +52,10 @@ public class GunDiceScript : UIDiceScript
                 $"Firerate: {gun.fireRate:F2}\n" +
                 $"Speed: {gun.bulletSpeed:F2}\n" +
                 $"Recoil: {gun.aimDeviation:F2}";
-            yield return Utils.WaitNonAlloc(0.04f);
-            
-        }
 
+            if (i == 29) landSFX.Play();
+            else if (i % 3 == 0) rollSFX.Play();
+        }        
         playerShooter.gun = gun;
         playerShooter.ChangeSprite(gun.Type);
         used = true;

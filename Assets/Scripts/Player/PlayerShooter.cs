@@ -43,9 +43,8 @@ public class PlayerShooter : MonoBehaviour
     {
         while (true)
         {
-            if (me.input.Shooting)
-            {
-                
+            if (me.input.Shooting && me.CanShoot)
+            {                
                 Shoot();
                 yield return Utils.WaitNonAlloc(1f / gun.fireRate);
             }
@@ -54,6 +53,8 @@ public class PlayerShooter : MonoBehaviour
     }
     private void Shoot()
     {
+        me.shootSFX.Play();
+        CameraController.Instance.Shake(0.05f, 0.2f);
         for (int i = 0; i < gun.bulletsPerShot; i++)
         {
 

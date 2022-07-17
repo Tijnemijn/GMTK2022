@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using System.Collections;
+using UnityEngine;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,4 +19,22 @@ public class UIManager : MonoBehaviour
 
     [HideInInspector] public Window currentWindow;
     public bool IsWindowOpened => currentWindow != null;
+
+    [SerializeField] private TextMeshProUGUI countdown; 
+
+    public void StartCountdown()
+    {
+        StartCoroutine(Countdown());
+    }
+    public event Action OnCountDownComplete;
+    private IEnumerator Countdown()
+    {
+        for (int i = 3; i >= 1; i--)
+        {
+            countdown.text = $"{i}";
+            yield return Utils.WaitNonAlloc(1f);
+        }
+        countdown.text = "";
+        OnCountDownComplete?.Invoke();
+    }
 }

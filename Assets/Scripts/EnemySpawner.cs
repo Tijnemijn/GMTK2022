@@ -17,6 +17,7 @@ public class EnemySpawner : MonoBehaviour
     public int wave;
     private float waveAmount;
     private bool wasDicewindow;
+    private bool isCountingDown = false;
     [SerializeField]private float spawnDelay = 0.6f;
     
     [Space]
@@ -27,30 +28,31 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         locations =  GetComponentsInChildren<Transform>();
+        UIManager.Instance.OnCountDownComplete += GetWave;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (enemyAmount == 0)
-        {
-            if (!wasDicewindow)
+        {            
+            if (!wasDicewindow && !isCountingDown)
             {
                 diceWindow.Open();
-                wasDicewindow = true;
-                
+                wasDicewindow = true;               
             }
 
             if (diceWindow.IsOpen)
             {
                 StartCoroutine(Wait());
             }
-            else
+            else if (!isCountingDown)
             {
-                ChangeTiles();
+                UIManager.Instance.StartCountdown();
                 wave++;
-                GetWave();
                 wasDicewindow = false;
+                isCountingDown = true;
+                ChangeTiles();
             }
 
         }
@@ -74,6 +76,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void GetWave()
     {
+        isCountingDown = false;   
         waveAmount = 100 * wave * Mathf.Pow(1.01f, wave);
         int spawn1 = Random.Range(0, locations.Length);
         int spawn2 = Random.Range(0, locations.Length);;

@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
     public float Health { get; set; }
     public bool Alive { get; private set; } = true;
 
+    public bool CanShoot => !UIManager.Instance.IsWindowOpened && Alive;
+
+    public bool CanMove => !UIManager.Instance.IsWindowOpened && Alive;
+
     private static Player instance;
     public static Player Instance => instance ?? throw new System.Exception("Singleton was not initialized");
 
@@ -22,34 +26,62 @@ public class Player : MonoBehaviour
 
     internal new Transform transform;
 
-    private int iframes = 0;
-    [SerializeField] private int iframeAmount = 270;
-    private int lastFrame;
+
+    [SerializeField] private float stunTime = 1f;
+    public bool IsInvincible { get; private set; }
 
     [field: SerializeField] public Transform SpriteObject { get; private set; }
 
-    public float Damage(float amount)
-    {
-        if (!Alive) return amount;
-        {
-            if (iframes <= 0)
-            {
-                float diff = amount - Health;
-                Health -= amount;
+    public AudioSource shootSFX;
+    public AudioSource stepSFX;
+    public AudioSource hurtSFX;
 
-                if (Health <= 0)
-                {
-                    Die();
-                    return 0;
-                }
-                else
-                {
-                    iframes = iframeAmount;
-                    return diff;
-                }
-            }
-            return amount;
+    public float Damage(float amount, bool noStun = false)
+    {        
+        if (!Alive) return amount;
+
+        if (noStun)
+        {
+            StartCoroutine(DamageRoutine());
         }
+        else
+        {
+            hurtSFX.Play();
+            IsInvincible = true;
+            StartCoroutine(StunRoutine());            
+            CameraController.Instance.Shake(0.3f, 0.4f);
+        }
+
+        float diff = amount - Health;
+
+        Health -= amount;        
+        if (Health <= 0)
+        {
+            Die();
+            return 0;
+        }
+        else
+        {
+            return diff;
+        }
+        return amount;
+    }
+    private IEnumerator StunRoutine()
+    {
+        var sprite = SpriteObject.GetComponent<SpriteRenderer>();        
+        sprite.color = Color.red;
+        yield return Utils.WaitNonAlloc(0.1f);
+        sprite.color = new Color(1, 1, 1, 0.5f);
+        yield return Utils.WaitNonAlloc(stunTime);
+        sprite.color = Color.white;
+        IsInvincible = false;
+    }
+    private IEnumerator DamageRoutine()
+    {
+        var sprite = SpriteObject.GetComponent<SpriteRenderer>();
+        sprite.color = Color.red;
+        yield return Utils.WaitNonAlloc(0.1f);
+        sprite.color = Color.white;
     }
     public void Knockback(Vector2 amount)
     {
@@ -74,25 +106,38 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<EntityController>();
         motionInput = Vector2.zero;
-        
+
         animator = SpriteObject.GetComponent<SpriteAnimator>();
+
+        StartCoroutine(StepSFXLoop());
     }
 
     // TODO: Maybe move this to PlayerInput
     void Update()
     {
         motionInput = input.GetMotionInput();
-        if(motionInput == new Vector2(0,0))
-            animator.SwitchAnimation("PlayerIdle");
-        else
+        if(motionInput != Vector2.zero && CanMove)
             animator.SwitchAnimation("PlayerWalkAnim");
-
-        iframes -= Time.frameCount - lastFrame;
-        lastFrame = Time.frameCount;
+        else
+        {
+            animator.SwitchAnimation("PlayerIdle");            
+        }          
+    }
+    private IEnumerator StepSFXLoop()
+    {
+        while (true)
+        {
+            if (Alive && motionInput != Vector2.zero)
+            {
+                stepSFX.Play();
+                yield return Utils.WaitNonAlloc(0.2f);
+            }
+            else yield return null;
+        }
     }
 
     private void FixedUpdate()
     {
-        controller.Move(motionInput);
+        controller.Move(CanMove ? motionInput : Vector2.zero);
     }
 }
