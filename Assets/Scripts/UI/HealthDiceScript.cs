@@ -7,6 +7,7 @@ public class HealthDiceScript : UIDiceScript
 {
     public TextMeshProUGUI valueText;
     public int value;
+    public bool used;
     protected override void Animate()
     {
         rect.LeanMoveY(20, 0.1f)
@@ -23,6 +24,7 @@ public class HealthDiceScript : UIDiceScript
     {
         rect.LeanSize(new Vector2(100, 100), 0f);
         valueText.alpha = 0;
+        used = false;
     }
     public IEnumerator RollValue()
     {
@@ -32,5 +34,7 @@ public class HealthDiceScript : UIDiceScript
             valueText.text = $"+ {value}";
             yield return Utils.WaitNonAlloc(0.04f);
         }
+
+        used = true;
     }
 }

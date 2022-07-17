@@ -10,6 +10,7 @@ public class GunDiceScript : UIDiceScript
     public GunInfo gun;
     public TextMeshProUGUI gunTypeText;
     public TextMeshProUGUI gunInfoText;
+    public bool used;
 
 
     protected override void Animate()
@@ -26,6 +27,12 @@ public class GunDiceScript : UIDiceScript
 
         StartCoroutine(RollValue());
     }
+    public override void ResetAnimation()
+    {
+        //rect.LeanSize(new Vector2(100, 100), 0f);
+        //valueText.alpha = 0;
+        //used = false;
+    }
     public IEnumerator RollValue()
     {
         for (int i = 0; i < 20; i++)
@@ -39,6 +46,9 @@ public class GunDiceScript : UIDiceScript
                 $"Speed: {gun.bulletSpeed:F2}\n" +
                 $"Recoil: {gun.aimDeviation:F2}";
             yield return Utils.WaitNonAlloc(0.04f);
+            
         }
+
+        used = true;
     }
 }

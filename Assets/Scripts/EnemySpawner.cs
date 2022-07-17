@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     private Transform[] locations;
     public int wave;
     private float waveAmount;
+    private bool wasDicewindow;
     [SerializeField]private float spawnDelay = 0.6f;
     
     [Space]
@@ -32,11 +33,30 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemyAmount == 0)
         {
-            diceWindow.Open();
-            wave++;
-            GetWave();
+            if (!wasDicewindow)
+            {
+                diceWindow.Open();
+                wasDicewindow = true;
+            }
+
+            if (diceWindow.IsOpen)
+            {
+                StartCoroutine(Wait());
+            }
+            else
+            {
+                wave++;
+                GetWave();
+                wasDicewindow = false;
+            }
+
         }
     }
+
+    private IEnumerator Wait()
+    {
+        yield return Utils.WaitNonAlloc(spawnDelay);
+    } 
 
     private void GetWave()
     {

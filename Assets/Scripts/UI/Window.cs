@@ -9,6 +9,11 @@ public class Window : MonoBehaviour
     [SerializeField] private RectTransform content;
     [SerializeField] private RectTransform backdrop;
 
+    [Space]
+    [SerializeField] private HealthDiceScript health;
+    [SerializeField] private GunDiceScript gun;
+    
+
     public void Open()
     {
         if (IsOpen) return;
@@ -55,6 +60,13 @@ public class Window : MonoBehaviour
 
     private void Update()
     {
-
+        if (gun.used == true && health.used == true)
+        {
+            gun.used = false;
+            health.used = false;
+            gun.ResetAnimation();
+            health.ResetAnimation();
+            Close();
+        }
     }
 }
