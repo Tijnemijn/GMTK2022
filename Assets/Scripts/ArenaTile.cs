@@ -13,13 +13,18 @@ public class ArenaTile : MonoBehaviour
 {
     [field: SerializeField] public ArenaTileType type { get; private set; }
     [SerializeField] private SpriteAnimator animator;
+    [SerializeField] private float cooldownTime = 0.4f;
+    private float cooldown = 0;
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (type == ArenaTileType.Heater)
+        if (type == ArenaTileType.Heater && cooldown <= 0)
             ApplyHeaterEffect(other);
     }
-
+    private void Update()
+    {
+        if (cooldown > 0) cooldown -= Time.deltaTime;
+    }
     public void SwitchToType(ArenaTileType type)
     {
         this.type = type;
@@ -42,11 +47,13 @@ public class ArenaTile : MonoBehaviour
     {
         if (other.TryGetComponent(out Enemy enemy))
         {
-            enemy.Damage(10f * Time.deltaTime);
+            enemy.Damage(5f);
+            cooldown = cooldownTime;
         }
         else if (other.TryGetComponent(out Player player))
         {
-            player.Damage(5f * Time.deltaTime, true);
+            player.Damage(2.8f, true);
+            cooldown = cooldownTime;
         }
     }
 }
