@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using JetBrains.Annotations;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
     private bool isCountingDown = false;
     private bool isSpawningEnemies = false;
     [SerializeField]private float spawnDelay = 0.6f;
+    [SerializeField] private GameObject spawn;
     
     [Space]
     [SerializeField] private Enemy dice1Prefab;
@@ -85,7 +88,15 @@ public class EnemySpawner : MonoBehaviour
         {
             spawn2 = Random.Range(0, locations.Length);
         }
-
+        spawn.SetActive(false);
+        for(int i = 1; i<locations.Length;i++)
+            locations[i].gameObject.SetActive(false);
+            
+        locations[spawn1].gameObject.SetActive(true);
+        locations[spawn2].gameObject.SetActive(true);
+        if(spawn1 == 0 || spawn2 == 0)
+            spawn.SetActive(true);
+        
         Transform[] spawns = { locations[spawn1], locations[spawn2] };
         StartCoroutine(GetEnemies(waveAmount, spawns));
     }
