@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc2de61ab7f8a7f4fb351bbaf644b414, type: 3}
-  m_Name: AreaIceTile
+  m_Name: ArenaHeaterTile
   m_EditorClassIdentifier: 
   <Paused>k__BackingField: 0
   <Looping>k__BackingField: 0
@@ -18,4 +18,4 @@ MonoBehaviour:
   frames:
   - {fileID: -4917871181019795667, guid: ba422a884ef34214ca7c1d9a081366a8, type: 3}
   - {fileID: 8084324647256698136, guid: ba422a884ef34214ca7c1d9a081366a8, type: 3}
-  - {fileID: -1295706760232523450, guid: ba422a884ef34214ca7c1d9a081366a8, type: 3}
+  - {fileID: -6481413423098955950, guid: ba422a884ef34214ca7c1d9a081366a8, type: 3}

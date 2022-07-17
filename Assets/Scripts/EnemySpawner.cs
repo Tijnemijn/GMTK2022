@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
 {
 
     [SerializeField] private Window diceWindow;
+    [SerializeField] private ArenaTile[] arenaTiles;
     [Space]
     
     public int enemyAmount;
@@ -37,6 +38,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 diceWindow.Open();
                 wasDicewindow = true;
+                ChangeTiles();
             }
 
             if (diceWindow.IsOpen)
@@ -51,6 +53,16 @@ public class EnemySpawner : MonoBehaviour
             }
 
         }
+    }
+
+    private void ChangeTiles()
+    {
+        ArenaTileType type = (ArenaTileType)Random.Range(0, 3);
+        foreach (var tile in arenaTiles)
+        {
+            tile.SwitchToType(type);
+        }
+        
     }
 
     private IEnumerator Wait()
